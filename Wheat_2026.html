@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل وحاسبة زراعة القمح الشاملة 2026</title>
+   <link rel="shortcut icon" href="Cover.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --wheat-gold: #f1c40f;
+            --wheat-brown: #d35400;
+            --farm-green: #27ae60;
+            --sky-blue: #3498db;
+            --bg-light: #f4f7f6;
+            --text-dark: #2c3e50;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            text-align: center;
+            padding: 40px 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        header h1 { 
+            margin: 0 0 10px 0; 
+            font-size: 22px; 
+        }
+        header p {
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: -20px auto 30px;
+            padding: 0 12px;
+            box-sizing: border-box;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--wheat-gold);
+            box-sizing: border-box;
+        }
+
+        h2 {
+            color: var(--farm-green);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 0;
+            font-size: 18px;
+        }
+
+        .calculator {
+            border: 2px solid var(--farm-green);
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .input-group label {
+            font-size: 1.1em;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            width: 100%;
+            max-width: 200px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 1.1em;
+            text-align: center;
+            font-family: 'Tajawal', sans-serif;
+            box-sizing: border-box;
+        }
+
+        .calc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .result-item {
+            background: #f9f9f9;
+            padding: 12px 8px;
+            border-radius: 8px;
+            text-align: center;
+            border-bottom: 3px solid var(--sky-blue);
+            font-size: 13px;
+        }
+
+        .result-item span {
+            display: block;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: var(--wheat-brown);
+            margin-top: 5px;
+            word-break: break-word;
+        }
+
+        /* حاوية التمرير الأفقي للجداول على الشاشات الصغيرة */
+        .table-container {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            width: 100%;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            min-width: 500px;
+        }
+
+        th {
+            background: var(--farm-green);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        td {
+            padding: 10px 8px;
+            border-bottom: 1px solid #eee;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        tr:hover {
+            background: #f1f9f1;
+            transition: 0.3s;
+        }
+
+        .highlight-box {
+            background: #fff8e1;
+            border-right: 5px solid var(--wheat-gold);
+            padding: 12px;
+            margin: 15px 0;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .badge {
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            color: white;
+            font-weight: bold;
+            display: inline-block;
+        }
+        .bg-danger { background: #e74c3c; }
+        .bg-success { background: #27ae60; }
+        .bg-orange { background: var(--wheat-brown); }
+        .bg-blue { background: var(--sky-blue); }
+
+        ul { padding-right: 20px; font-size: 14px; }
+        ul li { margin-bottom: 8px; }
+
+        footer {
+            text-align: center;
+            padding: 20px 10px;
+            background: #2c3e50;
+            color: white;
+            margin-top: 30px;
+            font-size: 13px;
+        }
+        footer p { margin: 5px 0; }
+
+        .btn-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .btn-back {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            background: transparent;
+            color: var(--farm-green);
+            font-weight: bold;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: 0.3s;
+            border: 2px solid var(--farm-green);
+        }
+        .btn-back:hover {
+            background: var(--farm-green);
+            color: #fff;
+        }
+
+        @media (max-width: 600px) {
+            .calc-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🌾 الحاسبة الذكية ودليل زراعة القمح الشامل</h1>
+    <p>أدخل مساحة أرضك واحصل على خطة الزراعة، الاحتياجات، والتكاليف فوراً</p>
+</header>
+
+<div class="container">
+
+    <!-- أولاً: الحاسبة الديناميكية الرقمية -->
+    <div class="card calculator">
+        <h2><i class="fa-solid fa-calculator"></i> 🧮 حاسبة احتياجات الفدان التفاعلية</h2>
+        <div class="input-group">
+            <label for="area">مساحة الأرض (بالفدان): </label>
+            <input type="number" id="area" value="1" min="0.25" step="0.25" oninput="calculate()">
+        </div>
+
+        <div class="calc-grid">
+            <div class="result-item">التقاوي المطلوبة<span id="seeds">60 كجم</span></div>
+            <div class="result-item">سوبر فوسفات<span id="phosphate">3 شكائر</span></div>
+            <div class="result-item">يوريا / نترات<span id="nitrogen">4 شكائر</span></div>
+            <div class="result-item">الإنتاج المتوقع<span id="output">20 إردب</span></div>
+            <div class="result-item">التكلفة التقريبية<span id="cost">35,000 ج.م</span></div>
+            <div class="result-item">صافي الربح المتوقع<span id="profit">17,000 ج.م</span></div>
+        </div>
+    </div>
+
+    <!-- ثانياً: مواعيد الزراعة -->
+    <div class="card">
+        <h2>📅 1. مواعيد الزراعة الذهبية</h2>
+        <p>التوقيت هو السر لنجاح المحصول وحمايته من تقلبات الجو وتحقيق أعلى إنتاجية للفدان (20-24 إردب).</p>
+        <div class="highlight-box">
+            الفترة المثالية: من 15 نوفمبر إلى نهاية شهر نوفمبر.
+        </div>
+        <ul>
+            <li><strong>التبكير (أكتوبر):</strong> يسبب صغر حجم السنابل وقلة التفريع الخضري.</li>
+            <li><strong>التأخير (ديسمبر):</strong> يعرض القمح لموجات الحرارة المتأخرة ويسبب ضمور الحبوب المفاجئ.</li>
+        </ul>
+    </div>
+
+    <!-- ثالثاً: خريطة الأصناف الجغرافية -->
+    <div class="card">
+        <h2>🛡️ 2. اختيار الصنف المناسب حسب التربة والمنطقة</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>المنطقة / نوع التربة</th>
+                        <th>الأصناف المرشحة والموصى بها</th>
+                        <th>الميزة السيادية للمحصول</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>الوجه البحري والدلتا والتربة الخصبة</td>
+                        <td>جيزة 171، مصر 3، سخا 95</td>
+                        <td><span class="badge bg-success">مقاومة عالية جداً للأصداء</span></td>
+                    </tr>
+                    <tr>
+                        <td>مصر العليا وأراضي الصعيد (حرارة عالية)</td>
+                        <td>سدس 14، مصر 1، بني سويف 5</td>
+                        <td><span class="badge bg-orange">تحمل الإجهاد الحراري العالي</span></td>
+                    </tr>
+                    <tr>
+                        <td>الأراضي المتأثرة بالملوحة والظروف القاسية</td>
+                        <td>مصر 1، سخا 95</td>
+                        <td><span class="badge bg-blue">كفاءة تحمل ملوحة التربة والمياه</span></td>
+                    </tr>
+                    <tr>
+                        <td>⚠️ تنبيه حرج! (الوجه البحري والدلتا)</td>
+                        <td>سدس 12، جميزة 11</td>
+                        <td><span class="badge bg-danger">ممنوع زراعتها تماماً (تُصاب بالصدأ)</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- رابعاً: برنامج الري والتسميد للأراضي الطينية -->
+    <div class="card">
+        <h2>💧 3. برنامج الري والتسميد المقنن (الأراضي الطينية)</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>الرية الترتيبية</th>
+                        <th>الموعد المناسب</th>
+                        <th>كمية التسميد المستهدفة / فدان</th>
+                        <th>ملاحظة فنية حاسمة</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>رية المحاياة</b></td>
+                        <td>21 - 25 يوم من الزراعة</td>
+                        <td>2 شيكارة (نترات أو يوريا)</td>
+                        <td>أهم رية على الإطلاق لتحفيز التفرعات</td>
+                    </tr>
+                    <tr>
+                        <td><b>الرية الثانية</b></td>
+                        <td>بعد 20 يوم من المحاياة</td>
+                        <td>1.5 شيكارة نيتروجينية</td>
+                        <td>ينثر السماد في الأرض قبل الري مباشرة</td>
+                    </tr>
+                    <tr>
+                        <td><b>طرد السنابل</b></td>
+                        <td>عند بداية خروج السنابل</td>
+                        <td>0.5 شيكارة + عنصر البوتاسيوم</td>
+                        <td>ضرورية جداً لتسريع نقل الغذاء للحبوب</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- خامساً: مكافحة الحشائش والأعداء -->
+    <div class="card">
+        <h2>🌾 4. مكافحة الحشائش الضارة والأعداء الطبيعية</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>نوع الحشائش المستهدفة</th>
+                        <th>موعد الرش الأمثل</th>
+                        <th>المبيد الكيماوي المقترح نقاوته</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>الحشائش العريضة</b> (مثل الخبيزة، السلق، أو النفل)</td>
+                        <td>خلال 20 - 30 يوم من الزراعة</td>
+                        <td>جرانستار / درآبي</td>
+                    </tr>
+                    <tr>
+                        <td><b>الحشائش الرفيعة</b> (مثل الزمير، الصامة، أو الفلارس)</td>
+                        <td>خلال 30 - 45 يوم من الزراعة</td>
+                        <td>توبيك / أكسيال</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- سادساً: الحصاد والتخزين الصحيح -->
+    <div class="card">
+        <h2>📦 5. الحصاد والتخزين الصحيح للمحصول</h2>
+        <p>لضمان حماية جودة ونقاء الحبوب وعدم ضياع مجهودك الشاق في المرحلة الأخيرة، يرجى اتباع الإرشادات التالية:</p>
+        <ul>
+            <li><strong>علامة النضج الكامل:</strong> تحول الحامل الأسفل للسنبلة إلى اللون الأصفر تماماً وجفاف وتصلب الحبة.</li>
+            <li><strong>وقت الحصاد القياسي:</strong> يتم الحصاد في الصباح الباكر أو عند الغروب لتجنب "فرط" وتناثر الحبوب في الأرض بفعل حرارة الشمس.</li>
+            <li><strong>آلية التخزين الآمن:</strong> ارفع الأجولة عن الأرض بوضعها فوق "بالتات خشبية"، واترك مسافات كافية عن الجدران لضمان تهوية جيدة ومنع الرطوبة.</li>
+        </ul>
+    </div>
+
+    <!-- زر العودة التفاعلي إلى صفحة تطبيقك الرئيسية -->
+    <div class="btn-container">
+        <a href="Valley Farming by the Coptic Calendar.html" class="btn-back"><i class="fa-solid fa-house"></i> العودة للخلف</a>
+    </div>
+
+</div>
+
+<footer>
+    <p>تم تطوير هذا الدليل لدعم المزارع المصري عامة ومزارع الوادي الجديد خاصة 2026</p>
+    <p>مع تمنياتنا بموسم حصاد خير وبركة وفير</p>
+</footer>
+
+<script>
+    function calculate() {
+        let area = parseFloat(document.getElementById('area').value);
+        
+        if (isNaN(area) || area < 0) {
+            area = 0;
+        }
+
+        let seedsVal = area * 60;
+        let phosphateVal = area * 3;
+        let nitrogenVal = area * 4;
+        let outputVal = area * 20;
+        let costVal = area * 35000;
+        let profitVal = area * 17000;
+
+        document.getElementById('seeds').innerText = seedsVal.toLocaleString() + " كجم";
+        document.getElementById('phosphate').innerText = phosphateVal.toLocaleString() + " شكائر";
+        document.getElementById('nitrogen').innerText = nitrogenVal.toLocaleString() + " شكائر";
+        document.getElementById('output').innerText = outputVal.toLocaleString() + " إردب";
+        document.getElementById('cost').innerText = costVal.toLocaleString() + " ج.م";
+        document.getElementById('profit').innerText = profitVal.toLocaleString() + " ج.م";
+    }
+
+    window.onload = calculate;
+</script>
+
+</body>
+</html>

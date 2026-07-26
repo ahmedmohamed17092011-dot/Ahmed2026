@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>فريق الزراعة الذكية</title>
+   <link rel="shortcut icon" href="Cover.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --accent: #cddc39; /* اللون الليموني */
+            --glass: rgba(255, 255, 255, 0.12);
+            --ink: #ffffff;
+        }
+
+        * { box-sizing: border-box; }
+        
+        body {
+            margin: 0;
+            /* الخلفية الخضراء المتدرجة مثل صفحة الزراعة الذكية */
+            background: #0a2e0c linear-gradient(135deg, #0a2e0c 0%, #1b5e20 100%);
+            font-family: 'Cairo', sans-serif;
+            color: var(--ink);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 24px;
+        }
+
+        .poster {
+            width: min(700px, 92vw);
+            /* التصميم الزجاجي Card */
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 48px 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+        }
+
+        .title {
+            font-size: clamp(28px, 6vw, 48px);
+            font-weight: 800;
+            margin: 0 0 10px;
+            color: var(--accent);
+            letter-spacing: .3px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0 0 35px;
+            opacity: .8;
+            color: #ccc;
+        }
+
+        .names {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 16px;
+        }
+
+        .names li {
+            font-size: clamp(18px, 3.5vw, 26px);
+            font-weight: 700;
+            line-height: 1.5;
+            padding: 15px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.08);
+            border-right: 5px solid var(--accent); /* إضافة لمسة جمالية على اليمين */
+            transition: 0.3s;
+        }
+
+        .names li:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: scale(1.02);
+        }
+
+        .icon-box {
+            font-size: 50px;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        /* زر العودة للصفحة الرئيسية */
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            text-decoration: none;
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        .back-btn:hover { color: #fff; }
+
+        @media print {
+            body { background: white; color: black; }
+            .poster { box-shadow: none; border: 1px solid #ccc; width: 100%; color: black; }
+            .title { color: black; }
+            .names li { border-right: 2px solid black; color: black; }
+        }
+    </style>
+</head>
+<body>
+    <main class="poster" aria-label="فريق الزراعة الذكية">
+        <div class="icon-box">
+            <i class="fa-solid fa-users-gear"></i>
+        </div>
+        <h1 class="title">فريق الزراعة الذكية</h1>
+        <p class="subtitle">المبدعون وراء حلول التكنولوجيا الزراعية</p>
+        
+        <ul class="names" aria-label="أسماء أعضاء الفريق">
+            <li>
+             أحمد محمد أحمد حسن
+01283209926
+         </li>
+            <li>إياد محمود محمد عبدالكريم</li>
+            <li>حنين أحمد صبحي عبدالحفيظ</li>
+        </ul>
+
+        <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-right"></i> العودة للرئيسية</a>
+    </main>
+</body>
+</html>

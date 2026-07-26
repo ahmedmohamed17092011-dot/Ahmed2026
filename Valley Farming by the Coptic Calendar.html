@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الزراعة الذكية</title>  
+   <link rel="shortcut icon" href="Cover.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root { --accent: #cddc39; --glass: rgba(255, 255, 255, 0.12); }
+        body {
+            margin: 0; font-family: 'Cairo', sans-serif; color: #fff;
+            background: #0a2e0c linear-gradient(135deg, #0a2e0c 0%, #1b5e20 100%);
+            min-height: 100vh;
+        }
+        header { padding: 20px; text-align: center; background: rgba(0,0,0,0.4); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .container { max-width: 700px; margin: auto; padding: 20px; }
+        .card {
+            background: var(--glass); backdrop-filter: blur(20px); border-radius: 25px;
+            padding: 25px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        h2 { color: var(--accent); margin-top: 0; font-size: 20px; display: flex; align-items: center; gap: 10px; }
+        .weather-panel { text-align: center; background: rgba(0,0,0,0.2); padding: 15px; border-radius: 20px; }            
+        .weather-link {
+            display: inline-block; padding: 15px 25px; background: var(--accent);
+            color: #1b5e20; text-decoration: none; font-weight: 900;
+            border-radius: 12px; transition: 0.3s; font-size: 16px;
+        }
+        .weather-link:hover { background: #fff; transform: translateY(-3px); }
+        input, select {            width: 100%; padding: 15px; margin: 10px 0; border-radius: 12px; border: none;            background: rgba(255,255,255,0.2); color: white; font-size: 16px; outline: none; box-sizing: border-box;        }        option { background: #1b5e20; color: white; }        
+        .btn-main {
+            width: 100%; padding: 18px; border-radius: 12px; border: none;
+            background: var(--accent); color: #1b5e20; font-weight: 900; font-size: 18px; cursor: pointer; transition: 0.3s;
+        }
+        .btn-main:hover { background: #fff; transform: translateY(-3px); }            
+        .btn-link {
+            display: none; text-align: center; text-decoration: none;
+            width: 100%; padding: 15px; border-radius: 12px; margin-top: 15px;
+            background: #ffffff; color: #1b5e20; font-weight: bold; font-size: 16px;
+            box-sizing: border-box; transition: 0.3s; border: 2px solid var(--accent);
+        }
+        .btn-link:hover { background: var(--accent); color: #1b5e20; }
+        .info-box {            margin-top: 20px; padding: 20px; background: rgba(0,0,0,0.4);            border-radius: 20px; border-top: 4px solid var(--accent); display: none;        }        
+        .guide-title { color: var(--accent); font-weight: bold; margin-top: 15px; display: block; }        
+        .guide-text { font-size: 15px; line-height: 1.7; color: #e0e0e0; }
+        
+        /* تنسيق زر العودة للصفحة الرئيسية */
+        .btn-back {
+            display: block; text-align: center; text-decoration: none;
+            width: 100%; padding: 15px; border-radius: 12px; margin-top: 15px;
+            background: transparent; color: var(--accent); font-weight: bold; font-size: 16px;
+            box-sizing: border-box; transition: 0.3s; border: 2px solid var(--accent);
+        }
+        .btn-back:hover { background: var(--accent); color: #1b5e20; }
+    </style>
+</head>
+<body>
+
+<header>    
+    <h1><i class="fa-solid fa-calendar-days"></i> زراعة الوادي بالتقويم القبطي</h1>    
+    <div id="copticTodayHeader" style="font-size: 18px; font-weight: bold; color: var(--accent);">جاري الحساب...</div>
+</header>
+
+<div class="container">    
+    <div class="card">        
+        <h2><i class="fa-solid fa-temperature-high"></i> طقس الوادي الجديد</h2>        
+        <div class="weather-panel">            
+            <a href="https://www.arabiaweather.com/ar/%D8%AA%D9%88%D9%82%D8%B9%D8%A7%D8%AA-%D8%A7%D9%84%D8%B7%D9%82%D8%B3/%D8%A7%D9%84%D9%88%D8%A7%D8%AF%D9%8A-%D8%A7%D9%84%D8%AC%D8%AF%D9%8A%D8%AF/1350/eg"                
+               target="_blank"                
+               class="weather-link">               
+               <i class="fa-solid fa-cloud-sun"></i> عرض طقس العرب - الوادي الجديد            
+            </a>        
+        </div>    
+    </div>    
+
+    <div class="card">        
+        <h2><i class="fa-solid fa-seedling"></i> تحديد المحصول</h2>                
+        <label>اختر المحصول:</label>        
+        <select id="cropSelect">            
+            <option value="">-- اختر المحصول من هنا --</option>            
+            <option value="نخيل البلح">🌴 نخيل البلح (السيوي)</option>            
+            <option value="القمح">🌾 القمح (أصناف الوادي)</option>            
+            <option value="البرسيم الحجازي">☘️ البرسيم الحجازي</option>            
+            <option value="الزيتون">🫒 الزيتون</option>            
+            <option value="البطاطس">🥔 البطاطس</option>            
+            <option value="البصل">🧅 البصل</option>            
+            <option value="العنب">🍇 العنب</option>            
+            <option value="النباتات الطبية">🌿 الكمون واليانسون</option>        
+        </select>        
+
+        <button class="btn-main" onclick="calculateCopticData()">عرض طريقة الزراعة</button>        
+
+        <div id="resultBox" class="info-box">            
+            <div id="basicResults" style="font-size: 18px; margin-bottom: 15px; color: var(--accent);"></div>            
+            <div id="plantingGuide">                
+                <span class="guide-title"><i class="fa-solid fa-book-open"></i> تفاصيل الزراعة والحصاد:</span>                
+                <p id="guideContent" class="guide-text"></p>                
+                <div id="harvestSection" style="margin-top:10px; padding:10px; background:rgba(205,220,57,0.1); border-radius:10px; color:var(--accent); font-weight:bold;"></div>                                
+                <a href="Date_Palm_2026.html" id="palmLink" class="btn-link">الدليل الشامل لزراعة النخيل</a>                
+                <a href="Wheat_2026.html" id="wheatLink" class="btn-link">الدليل الشامل لزراعة القمح</a>            
+            </div>        
+        </div>    
+
+        <!-- زر العودة إلى الصفحة الرئيسية الجديد -->
+        <a href="index.html" class="btn-back"><i class="fa-solid fa-house"></i> العودة للصفحة الرئيسية</a>
+    </div>
+</div>
+
+<script>    
+    const copticMonths = ["توت", "بابه", "هاتور", "كيهك", "طوبه", "أمشير", "برمهات", "برموده", "بشنس", "بؤونه", "أبيب", "مسرى", "النسيء"];    
+    const monthMapping = ["سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر", "يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس"];        
+    
+    const cropGuides = {        
+        "نخيل البلح": {            
+            guide: "الموعد القبطي المثالي لزراعة الفسائل هو (برمودة وبشنس). يراعى في الوادي الجديد الري بالتنقيط ومكافحة سوسة النخيل الحمراء بانتظام. أضف السماد العضوي في شهر (كيهك).",            
+            harvest: "تاريخ الحصاد المتوقع: يبدأ في شهر (توت وبابه) - سبتمبر وأكتوبر."        
+        },        
+        "القمح": {            
+            guide: "الموعد القبطي المثالي للزراعة هو شهر (هاتور). يحتاج لـ 6 ريات أساسية في أرض الوادي. تابع ظهور الصدأ الأصفر في شهر (أمشير).",            
+            harvest: "تاريخ الحصاد المتوقع: في شهر (برمودة) - أبريل."        
+        },        
+        "البرسيم الحجازي": {            
+            guide: "يزرع في (توت وبابه). محصول استراتيجي بالوادي، يحتاج لفسفور عالي وري منتظم كل 10 أيام في الصيف.",            
+            harvest: "تاريخ الحصاد: يتم الحش (الحصاد) دورياً كل 30-40 يوم حسب درجات الحرارة."        
+        },        
+        "الزيتون": {            
+            guide: "الموعد المثالي للغرس (أمشير وبرمهات). يتحمل ملوحة مياه الآبار، ويحتاج تقليماً فنياً في شهر (طوبة).",            
+            harvest: "تاريخ الحصاد المتوقع: يبدأ من شهر (توت) وحتى (هاتور) حسب النوع."        
+        },        
+        "البطاطس": {            
+            guide: "تزرع في (توت وبابه). تنجح في تربة الوادي الرملية، وتطلب تسميداً بوتاسياً عالياً، مع الحذر من صقيع شهر (طوبة).",            
+            harvest: "تاريخ الحصاد المتوقع: بعد 100-120 يوم من الزراعة (تقريباً في طوبة وأمشير)."        
+        },        
+        "البصل": {            
+            guide: "تزرع الشتلات في (هاتور وكيهك). راقب حشرة التربس بانتظام نظراً لجفاف الجو في منطقة الوادي.",            
+            harvest: "تاريخ الحصاد المتوقع: في شهر (برمهات وبرمودة)."        
+        },        
+        "العنب": {            
+            guide: "الموعد القبطي للزراعة هو (أمشير). يحتاج لرش كاسرات السكون في أواخر شهر (طوبة) لضمان خروج البراعم.",            
+            harvest: "تاريخ الحصاد المتوقع: يبدأ في شهر (بؤونه وأبيب)."        
+        },        
+        "النباتات الطبية": {            
+            guide: "تزرع في شهر (هاتور). مثل الكمون واليانسون، تحتاج رياً خفيفاً جداً والحصاد يكون عادة في شهر (برمودة).",            
+            harvest: "تاريخ الحصاد المتوقع: في شهر (برمودة وبشنس)."        
+        }    
+    };
+
+    function getCopticToday() {        
+        let date = new Date();        
+        let d = date.getDate(), m = date.getMonth() + 1, y = date.getFullYear();        
+        let jd = Math.floor((1461*(y+4800+Math.floor((m-14)/12)))/4)+Math.floor((367*(m-2-12*Math.floor((m-14)/12)))/12)-Math.floor((3*(Math.floor((y+4900+Math.floor((m-14)/12))/100)))/4)+d-32075;        
+        let diff = jd - 1825030;        
+        let dayInYear = Math.floor(diff % 365.25);        
+        let cMonth = Math.floor(dayInYear / 30);        
+        let cDay = (dayInYear % 30) + 1;        
+        let cYear = y - 284;        
+        if (m < 9 || (m == 9 && d < 11)) cYear--;        
+        if (cMonth >= 13) { cMonth = 12; cDay = dayInYear - 360 + 1; }        
+        return { day: cDay, month: copticMonths[cMonth], mapping: monthMapping[cMonth], year: cYear, gregYear: y };    }
+
+    function calculateCopticData() {        
+        const crop = document.getElementById('cropSelect').value;        
+        if (!crop) {            
+            alert("برجاء اختيار المحصول أولاً");            
+            return;        
+        }
+        const todayC = getCopticToday();        
+        const palmLink = document.getElementById('palmLink');        
+        const wheatLink = document.getElementById('wheatLink');        
+        document.getElementById('resultBox').style.display = 'block';        
+        document.getElementById('basicResults').innerHTML = `            📅 تاريخ اليوم: <b>${todayC.day} ${todayC.month} ${todayC.year} قبطية</b><br>            الموافق ميلادياً: <b>${todayC.day} ${todayC.mapping} ${todayC.gregYear}</b>        `;                        
+        document.getElementById('guideContent').innerText = cropGuides[crop].guide;        
+        document.getElementById('harvestSection').innerHTML = `<i class="fa-solid fa-calendar-check"></i> ${cropGuides[crop].harvest}`;                        
+        palmLink.style.display = crop === "نخيل البلح" ? "block" : "none";        
+        wheatLink.style.display = crop === "القمح" ? "block" : "none";    }
+
+    const t = getCopticToday();    
+    document.getElementById('copticTodayHeader').innerText = `اليوم: ${t.day} ${t.month} ${t.year} قبطية (${t.mapping})`;
+</script>
+</body>
+</html>

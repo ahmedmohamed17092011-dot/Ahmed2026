@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>منصة إدارة مزارع النخيل المتكاملة 2026</title>  
-   <link rel="shortcut icon" href="Cover.png" type="image/x-icon">
+    <link rel="shortcut icon" href="الزراعة الذكية.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
@@ -17,149 +17,171 @@
             --accent: #cddc39;
         }
 
+        * {
+            box-sizing: border-box;
+            -webkit-text-size-adjust: 100%;
+        }
+
         body {
             font-family: 'Tajawal', sans-serif;
             background-color: var(--bg-color);
             margin: 0; padding: 0;
             color: #333;
-            line-height: 1.8;
+            line-height: 1.6;
             overflow-x: hidden;
+            width: 100%;
         }
 
         header {
             background: linear-gradient(135deg, #1b5e20 0%, #4caf50 100%);
             color: white;
             text-align: center;
-            padding: 30px 15px;
+            padding: 18px 10px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
         header h1 { 
-            margin: 0 0 10px 0; 
-            font-size: 22px; 
+            margin: 0 0 6px 0; 
+            font-size: clamp(1rem, 4.5vw, 1.4rem); 
+            line-height: 1.3;
         }
         header p {
-            font-size: 14px;
+            font-size: clamp(0.75rem, 3vw, 0.88rem);
             margin: 0;
+            opacity: 0.95;
         }
 
         .container {
+            width: 100%;
             max-width: 1100px;
-            margin: 15px auto;
-            padding: 10px;
-            box-sizing: border-box;
+            margin: 0 auto;
+            padding: 8px;
         }
 
         .grid-layout {
             display: grid;
             grid-template-columns: 2fr 1fr;
-            gap: 20px;
+            gap: 12px;
         }
 
         .card {
             background: white;
-            padding: 18px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            margin-bottom: 20px;
-            box-sizing: border-box;
+            padding: 12px;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            margin-bottom: 12px;
+            width: 100%;
+            overflow: hidden;
         }
 
         h2 { 
             color: var(--primary-color); 
             border-bottom: 2px solid #eee; 
-            padding-bottom: 10px; 
+            padding-bottom: 6px; 
             margin-top: 0; 
-            font-size: 18px;
+            font-size: clamp(0.95rem, 3.8vw, 1.1rem);
         }
         h3 { 
             color: #2e7d32; 
-            margin-top: 15px; 
-            font-size: 16px;
+            margin-top: 10px; 
+            font-size: clamp(0.88rem, 3.2vw, 0.95rem);
         }
         
-        ul { padding-right: 20px; font-size: 14px; }
+        ul { padding-right: 18px; font-size: clamp(0.8rem, 3vw, 0.88rem); margin: 6px 0; }
+        ul li { margin-bottom: 5px; }
         
         .input-field {
             width: 100%;
-            padding: 12px;
-            margin: 8px 0;
-            border: 1px solid #ddd;
+            padding: 8px 10px;
+            margin: 4px 0 8px;
+            border: 1px solid #ccc;
             border-radius: 6px;
-            box-sizing: border-box;
-            font-size: 15px;
+            font-size: clamp(0.85rem, 3vw, 0.95rem);
+            font-family: inherit;
         }
 
         .stats-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-top: 10px;
+            gap: 8px;
+            margin-top: 6px;
         }
 
         .stat-item {
             background: #f1f8e9;
-            padding: 12px;
+            padding: 8px;
             border-radius: 8px;
             text-align: center;
         }
         .stat-item.expense { background: #ffebee; }
         
-        .highlight { font-size: 1.2em; font-weight: bold; display: block; word-break: break-word; }
+        .highlight { font-size: clamp(0.95rem, 3.5vw, 1.1rem); font-weight: bold; display: block; word-break: break-all; }
         .profit { color: var(--primary-color); }
         .loss { color: var(--danger-color); }
 
-        /* حاوية لجعل الجداول قابلة للتمرير الأفقي على الموبايل */
+        /* تعديل الجداول للتكيف مع كافة شاشات الهواتف بصورة ممتازة */
         .table-container {
             width: 100%;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
-            margin-top: 10px;
+            margin-top: 8px;
+            border-radius: 6px;
         }
 
-        table { width: 100%; border-collapse: collapse; background: #fff; min-width: 500px; }
-        th, td { padding: 10px 8px; border: 1px solid #eee; text-align: center; font-size: 13px; }
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            background: #fff; 
+            table-layout: fixed;
+            word-wrap: break-word;
+        }
+        th, td { 
+            padding: 6px 4px; 
+            border: 1px solid #eee; 
+            text-align: center; 
+            font-size: clamp(0.72rem, 2.7vw, 0.82rem); 
+            line-height: 1.3;
+        }
         th { background: #f5f5f5; color: var(--primary-color); font-weight: bold; }
 
         .grid-defense {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 15px;
+            grid-template-columns: 1fr;
+            gap: 10px;
         }
         .badge {
-            display: inline-block; padding: 4px 8px; border-radius: 4px; color: white; font-size: 11px; float: left;
+            display: inline-block; padding: 2px 5px; border-radius: 4px; color: white; font-size: 0.7rem; margin-bottom: 4px;
         }
         .badge-danger { background-color: var(--danger-color); }
         .badge-warning { background-color: #ef6c00; }
         .badge-success { background-color: var(--primary-color); }
 
         .checklist-item {
-            display: flex; align-items: flex-start; gap: 10px; padding: 10px;
-            background: #f9f9f9; border-radius: 6px; margin-bottom: 8px; cursor: pointer;
-            font-size: 14px;
+            display: flex; align-items: flex-start; gap: 8px; padding: 8px;
+            background: #f9f9f9; border-radius: 6px; margin-bottom: 6px; cursor: pointer;
+            font-size: clamp(0.78rem, 2.8vw, 0.85rem);
         }
-        .checklist-item input { width: 18px; height: 18px; margin-top: 3px; cursor: pointer; flex-shrink: 0; }
+        .checklist-item input { width: 16px; height: 16px; margin-top: 2px; cursor: pointer; flex-shrink: 0; }
 
         .btn-container {
-            margin-top: 20px;
+            margin: 15px 0 20px 0;
             text-align: center;
+            width: 100%;
         }
         .btn-back {
             display: block; text-align: center; text-decoration: none;
-            width: 100%; padding: 12px; border-radius: 8px;
-            background: transparent; color: var(--primary-color); font-weight: bold; font-size: 16px;
-            box-sizing: border-box; transition: 0.3s; border: 2px solid var(--primary-color);
+            width: 100%; padding: 10px; border-radius: 8px;
+            background: transparent; color: var(--primary-color); font-weight: bold; font-size: clamp(0.85rem, 3vw, 0.95rem);
+            transition: 0.3s; border: 2px solid var(--primary-color);
         }
         .btn-back:hover { background: var(--primary-color); color: #fff; }
 
-        /* تحسينات الشاشات الصغيرة والتلفون */
         @media (max-width: 850px) {
             .grid-layout { grid-template-columns: 1fr; }
-            header { padding: 25px 10px; }
-            header h1 { font-size: 20px; }
-            .card { padding: 15px; }
+        }
+
+        @media (max-width: 480px) {
             .stats-grid { grid-template-columns: 1fr; }
-            #netProfit { font-size: 2.2em !important; }
         }
     </style>
 </head>
@@ -180,11 +202,11 @@
                 <h2>💰 حاسبة الجدوى الاقتصادية</h2>
                 <div class="stats-grid">
                     <div>
-                        <label><b>عدد النخيل:</b></label>
+                        <label style="font-size:0.85rem;"><b>عدد النخيل:</b></label>
                         <input type="number" id="palmCount" class="input-field" value="100" oninput="calculateAll()">
                     </div>
                     <div>
-                        <label><b>الصنف:</b></label>
+                        <label style="font-size:0.85rem;"><b>الصنف:</b></label>
                         <select id="variety" class="input-field" onchange="calculateAll()">
                             <option value="medjool">مجدول (تصدير)</option>
                             <option value="barhi">برحي (طازج)</option>
@@ -194,11 +216,11 @@
                 </div>
                 <div class="stats-grid">
                     <div>
-                        <label>سعر البيع المتوقع (للكيلو):</label>
+                        <label style="font-size:0.85rem;">سعر البيع المتوقع (للكيلو):</label>
                         <input type="number" id="price" class="input-field" value="60" oninput="calculateAll()">
                     </div>
-                    <div style="background: #fff8e1; padding: 10px; border-radius: 8px; text-align: center;">
-                        <label><b>إجمالي الدخل المتوقع:</b></label>
+                    <div style="background: #fff8e1; padding: 8px; border-radius: 8px; text-align: center;">
+                        <label style="font-size:0.8rem;"><b>إجمالي الدخل المتوقع:</b></label>
                         <span id="grossIncome" class="highlight profit">0</span>
                     </div>
                 </div>
@@ -209,16 +231,16 @@
                 <h2>💸 التكاليف التشغيلية التقديرية</h2>
                 <div class="stats-grid">
                     <div>
-                        <label>تكلفة العمالة (سنوياً):</label>
+                        <label style="font-size:0.85rem;">تكلفة العمالة (سنوياً):</label>
                         <input type="number" id="laborCost" class="input-field" value="5000" oninput="calculateAll()">
                     </div>
                     <div>
-                        <label>مبيدات وأسمدة وفواتير:</label>
+                        <label style="font-size:0.85rem;">مبيدات وأسمدة وفواتير:</label>
                         <input type="number" id="otherCosts" class="input-field" value="3000" oninput="calculateAll()">
                     </div>
                 </div>
-                <div class="stat-item expense" style="margin-top: 15px;">
-                    <label>إجمالي المصاريف المباشرة:</label>
+                <div class="stat-item expense" style="margin-top: 8px;">
+                    <label style="font-size:0.85rem;">إجمالي المصاريف المباشرة:</label>
                     <span id="totalExpenses" class="highlight loss">0</span>
                 </div>
             </div>
@@ -227,8 +249,8 @@
             <div class="card" style="background: #e8f5e9; border: 2px solid var(--primary-color);">
                 <h2 style="text-align: center; border: none; padding: 0;">📉 صافي الربح السنوي المتوقع</h2>
                 <div style="text-align: center;">
-                    <span id="netProfit" style="font-size: 2.5em; font-weight: 900; color: #1b5e20;">0</span>
-                    <p id="profitMsg" style="font-weight: bold; margin: 5px 0 0 0; font-size: 14px;">سيتم حساب الربح بناءً على مدخلاتك</p>
+                    <span id="netProfit" style="font-size: clamp(1.4rem, 5vw, 2em); font-weight: 900; color: #1b5e20;">0</span>
+                    <p id="profitMsg" style="font-weight: bold; margin: 4px 0 0 0; font-size: clamp(0.75rem, 2.8vw, 0.85rem);">سيتم حساب الربح بناءً على مدخلاتك</p>
                 </div>
             </div>
 
@@ -257,15 +279,15 @@
 
             <!-- جدول التسميد السنوي للفدان -->
             <div class="card">
-                <h2>📊 جدول التسميد التفصيلي (للفدان الواحد - 65 نخلة)</h2>
+                <h2>📊 جدول التسميد التفصيلي (للفدان - 65 نخلة)</h2>
                 <div class="table-container">
                     <table>
                         <thead>
                             <tr>
-                                <th>الفترة الزمنية</th>
-                                <th>نوع السماد</th>
-                                <th>الكمية الإجمالية</th>
-                                <th>الهدف الرئيسي</th>
+                                <th style="width:25%;">الفترة</th>
+                                <th style="width:25%;">نوع السماد</th>
+                                <th style="width:20%;">الكمية</th>
+                                <th style="width:30%;">الهدف الرئيسي</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -305,30 +327,30 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>عمر النخلة</th>
-                                <th>عدد النقاطات</th>
-                                <th>اللترات (يومياً صيفاً)</th>
-                                <th>ساعات التشغيل</th>
+                                <th style="width:30%;">عمر النخلة</th>
+                                <th style="width:20%;">النقاطات</th>
+                                <th style="width:25%;">اللترات/يوم</th>
+                                <th style="width:25%;">التشغيل</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>فسيلة حديثة (1-2 سنة)</td>
+                                <td>حديثة (1-2 سنة)</td>
                                 <td>2 نقاط</td>
                                 <td>30 - 40 لتر</td>
                                 <td>2 - 3 ساعات</td>
                             </tr>
                             <tr>
-                                <td>نخلة متوسطة (3-6 سنوات)</td>
+                                <td>متوسطة (3-6 سنوات)</td>
                                 <td>4 نقاط</td>
                                 <td>80 - 100 لتر</td>
                                 <td>3 ساعات</td>
                             </tr>
                             <tr>
-                                <td>نخلة بالغة (+7 سنوات)</td>
+                                <td>بالغة (+7 سنوات)</td>
                                 <td>6 - 8 نقاط</td>
                                 <td>150 - 250 لتر</td>
-                                <td>4 ساعات (مقسمة على فترتين)</td>
+                                <td>4 ساعات</td>
                             </tr>
                         </tbody>
                     </table>
@@ -340,19 +362,19 @@
                 <h2>🐛 الوقاية من الآفات (الخطة الدفاعية)</h2>
                 <div class="grid-defense">
                     <div class="card" style="background:#fffafb; border: 1px solid #ffcdd2; margin-bottom: 0;">
-                        <h3>سوسة النخيل الحمراء <span class="badge badge-danger">خطر جداً</span></h3>
-                        <p><strong>الوقاية:</strong> الرش الوقائي بمادة "إيميداكلوبريد" كل 3 أشهر وتعفير أماكن التقليم والجروح فوراً.</p>
-                        <p><strong>العلامة:</strong> خروج سائل بني لزج برائحة كريهة أو ثقوب واضحة في الجذع.</p>
+                        <h3>سوسة النخيل <span class="badge badge-danger">خطر جداً</span></h3>
+                        <p style="font-size: 0.8rem; margin: 4px 0;"><strong>الوقاية:</strong> الرش الوقائي بمادة "إيميداكلوبريد" كل 3 أشهر وتعفير مكان التقليم.</p>
+                        <p style="font-size: 0.8rem; margin: 4px 0;"><strong>العلامة:</strong> خروج سائل بني لزج برائحة كريهة أو ثقوب بالجذع.</p>
                     </div>
                     <div class="card" style="background:#fffde7; border: 1px solid #fff9c4; margin-bottom: 0;">
-                        <h3>أكاروس الغبار (الغبيرة) <span class="badge badge-warning">موسمي</span></h3>
-                        <p><strong>العلاج:</strong> تعفير أو رش الكبريت الميكروني في شهر مايو قبل دخول الثمار مرحلة النضج النهائي.</p>
-                        <p><strong>العلامة:</strong> ظهور نسيج عنكبوتي دقيق حول العذوق مع جفاف وتخشب الثمار.</p>
+                        <h3>أكاروس الغبار <span class="badge badge-warning">موسمي</span></h3>
+                        <p style="font-size: 0.8rem; margin: 4px 0;"><strong>العلاج:</strong> رش الكبريت الميكروني في مايو قبل النضج.</p>
+                        <p style="font-size: 0.8rem; margin: 4px 0;"><strong>العلامة:</strong> نسيج عنكبوتي حول العذوق مع تخشب الثمار.</p>
                     </div>
                     <div class="card" style="background:#f1f8e9; border: 1px solid #dcc8b2; margin-bottom: 0;">
                         <h3>حيوية اللقاح <span class="badge badge-success">أساس الإنتاج</span></h3>
-                        <p><strong>الاختبار:</strong> وضع حبوب اللقاح في محلول سكري بتركيز 10%، إذا ترسب وظهرت خيوط مجهرية فهو حي ونشط.</p>
-                        <p><strong>التوقيت:</strong> يجرى التلقيح في الأيام الدافئة بين الـ 10 صباحاً والـ 2 ظهراً.</p>
+                        <p style="font-size: 0.8rem; margin: 4px 0;"><strong>الاختبار:</strong> وضع حبوب اللقاح بمحلول سكري 10% للتأكد من الترسب.</p>
+                        <p style="font-size: 0.8rem; margin: 4px 0;"><strong>التوقيت:</strong> بين الـ 10 صباحاً والـ 2 ظهراً للأيام الدافئة.</p>
                     </div>
                 </div>
             </div>
@@ -364,13 +386,9 @@
             <!-- جدول التسميد التفاعلي المربوط بعدد النخيل -->
             <div class="card" style="background: #efebe9;">
                 <h2>📅 الاحتياج الرقمي التقديري للأسمدة</h2>
-                <p style="font-size: 14px;">بناءً على إجمالي عدد <b><span id="palmDisplay" style="color:var(--primary-color);">100</span></b> نخلة مدخلة بالحاسبة:</p>
+                <p style="font-size: 0.8rem;">بناءً على إجمالي عدد <b><span id="palmDisplay" style="color:var(--primary-color);">100</span></b> نخلة:</p>
                 <div class="table-container">
-                    <style>
-                        .sidebar-table { width: 100%; min-width: auto; }
-                        .sidebar-table td { padding: 8px; border: none; border-bottom: 1px solid #ddd; }
-                    </style>
-                    <table class="sidebar-table">
+                    <table style="width: 100%;">
                         <tr><td><b>سماد عضوي</b></td><td><span id="orgRes" style="font-weight:bold;">0</span> طن</td></tr>
                         <tr><td><b>يوريا</b></td><td><span id="ureaRes" style="font-weight:bold;">0</span> كجم</td></tr>
                         <tr><td><b>بوتاسيوم</b></td><td><span id="potashRes" style="font-weight:bold;">0</span> كجم</td></tr>
@@ -383,19 +401,19 @@
                 <h2>📋 قائمة المهام الشهرية</h2>
                 <div id="checklist">
                     <label class="checklist-item">
-                        <input type="checkbox"> <span><b>فبراير:</b> فحص تفتح الكيزان وبدء التلقيح اليدوي فوراً.</span>
+                        <input type="checkbox"> <span><b>فبراير:</b> فحص تفتح الكيزان وبدء التلقيح اليدوي.</span>
                     </label>
                     <label class="checklist-item">
-                        <input type="checkbox"> <span><b>مارس:</b> إضافة الدفعة الأولى المستهدفة من التسميد النيتروجيني.</span>
+                        <input type="checkbox"> <span><b>مارس:</b> إضافة التسميد النيتروجيني.</span>
                     </label>
                     <label class="checklist-item">
-                        <input type="checkbox"> <span><b>أبريل:</b> إجراء عملية "الخف" الفنية لزيادة حجم جودة حبات المجدول.</span>
+                        <input type="checkbox"> <span><b>أبريل:</b> إجراء "الخف" الفني لزيادة حجم حبات المجدول.</span>
                     </label>
                     <label class="checklist-item">
-                        <input type="checkbox"> <span><b>مايو:</b> "التحدير" (ربط وتنزيل العذوق على السعف) لحمايتها من الكسر الحرج.</span>
+                        <input type="checkbox"> <span><b>مايو:</b> "التحدير" (تنزيل العذوق) لحمايتها من الكسر.</span>
                     </label>
                     <label class="checklist-item">
-                        <input type="checkbox"> <span><b>يونيو:</b> البدء بتغطية العذوق (التكميم) للوقاية من الطيور والدبابير والغبار.</span>
+                        <input type="checkbox"> <span><b>يونيو:</b> تغطية العذوق (التكميم) للوقاية من الآفات.</span>
                     </label>
                 </div>
             </div>
@@ -406,20 +424,20 @@
                 <div class="table-container">
                     <table>
                         <tr>
-                            <th>المعيار</th>
-                            <th>المواصفة المطلوبة لأعلى سعر بيع</th>
+                            <th style="width:35%;">المعيار</th>
+                            <th style="width:65%;">المواصفة المطلوبة</th>
                         </tr>
                         <tr>
                             <td><b>الرطوبة</b></td>
-                            <td>18% - 22% (لحماية التمور من التخمر والتعفن)</td>
+                            <td>18% - 22% (لحماية التمور من التعفن)</td>
                         </tr>
                         <tr>
                             <td><b>القشرة</b></td>
-                            <td>ملتصقة باللحم تماماً (تجنب ظاهرة الانتفاخ أو الانفصال)</td>
+                            <td>ملتصقة باللحم (تجنب الانفصال)</td>
                         </tr>
                         <tr>
                             <td><b>النظافة</b></td>
-                            <td>خلو تام من متبقيات المبيدات والأتربة والتشققات الميكانيكية</td>
+                            <td>خلو تام من المبيدات والأتربة والتشققات</td>
                         </tr>
                     </table>
                 </div>
@@ -429,16 +447,16 @@
             <div class="card">
                 <h2>☀️ تجفيف وتخزين التمور</h2>
                 <ul>
-                    <li>الاعتماد على التجفيف الشمسي المقنن أو استخدام الصوب البلاستيكية النظيفة.</li>
-                    <li>التخزين داخل غرف ومستودعات جافة تماماً، مبردة، وجيدة التهوية لمنع ظهور الآفات المخزنية.</li>
-                    <li>الحماية الكاملة والنظافة الدورية لمنع وصول القوارض والحشرات الطائرة.</li>
+                    <li>الاعتماد على التجفيف الشمسي أو الصوب البلاستيكية.</li>
+                    <li>التخزين داخل مستودعات جافة ومبردة.</li>
+                    <li>النظافة الدورية لمنع القوارض والحشرات.</li>
                 </ul>
             </div>
             
         </div>
     </div>
 
-    <!-- زر العودة إلى الصفحة الرئيسية المطلوبة -->
+    <!-- زر العودة -->
     <div class="btn-container">
         <a href="Valley Farming by the Coptic Calendar.html" class="btn-back"><i class="fa-solid fa-house"></i> العودة للخلف</a>
     </div>
@@ -466,11 +484,11 @@
         const profitEl = document.getElementById('netProfit');
         if (net < 0) {
             profitEl.style.color = "#c62828";
-            document.getElementById('profitMsg').innerText = "تنبيه: المصاريف التشغيلية الحالية تتجاوز الإيرادات المتوقعة!";
+            document.getElementById('profitMsg').innerText = "تنبيه: المصاريف تتجاوز الإيرادات!";
             document.getElementById('profitMsg').style.color = "#c62828";
         } else {
             profitEl.style.color = "#1b5e20";
-            document.getElementById('profitMsg').innerText = "ممتاز: هذا هو صافي الربح السنوي التقريبي المتوقع لموسمك الحالي.";
+            document.getElementById('profitMsg').innerText = "ممتاز: هذا هو صافي الربح السنوي المتوقع لموسمك.";
             document.getElementById('profitMsg').style.color = "#1b5e20";
         }
 
